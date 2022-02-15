@@ -9,4 +9,6 @@ routes.post('/',
   usersMiddleware.validateUser,
   usersController.create);
 
+routes.post('/login',usersMiddleware.validateLogin ,usersController.login);
+
 module.exports = routes;

@@ -6,7 +6,7 @@ const errors = require('./errors/errors')
 const app = express()
 app.use(express.json())
 
-app.use('/users', routes.users)
+app.use('/user', routes.users)
 app.use(errors)
 
 module.exports = app;

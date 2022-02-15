@@ -10,6 +10,17 @@ const create = async (req, res) => {
   return res.status(201).json(newUser)
 }
 
+const login = async (req, res) => {
+  const { email, password } = req.body;
+  const user = await usersService.login(email, password);
+  if (!user) return res.status(401).json({ message: 'Invalid credentials'})
+
+  const token = jwtCreate({ payload: user })
+
+  return res.status(201).json({ token })
+}
+
 module.exports = {
   create,
+  login
 }
