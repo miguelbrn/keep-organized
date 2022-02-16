@@ -12,6 +12,7 @@ const create = async (req, res) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
+  console.log('passou aqui');
   const user = await usersService.login(email, password);
   if (!user) return res.status(401).json({ message: 'Invalid credentials'})
 
